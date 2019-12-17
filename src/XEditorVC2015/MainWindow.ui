@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1345</width>
+    <height>611</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/new/prefix1/res/ET.bmp</normaloff>:/new/prefix1/res/ET.bmp</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1345</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_file_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_operation">
+    <property name="title">
+     <string>操作(&amp;O)</string>
+    </property>
+    <addaction name="action_operation_connect"/>
+    <addaction name="action_operation_discon"/>
+    <addaction name="action_operation_resetService"/>
+    <addaction name="action_operation_resetEquip"/>
+   </widget>
+   <widget class="QMenu" name="menu_editor">
+    <property name="title">
+     <string>编辑(&amp;E)</string>
+    </property>
+    <addaction name="action_editor_add"/>
+    <addaction name="action_editor_modify"/>
+    <addaction name="separator"/>
+    <addaction name="action_editor_cut"/>
+    <addaction name="action_editor_copy"/>
+    <addaction name="action_editor_paste"/>
+   </widget>
+   <widget class="QMenu" name="menu_view">
+    <property name="title">
+     <string>视图(&amp;V)</string>
+    </property>
+    <widget class="QMenu" name="menu_view_tool">
+     <property name="title">
+      <string>工具栏和停靠窗口(&amp;T)</string>
+     </property>
+     <addaction name="menu_view_tool_standard"/>
+     <addaction name="separator"/>
+     <addaction name="menu_view_tool_equipCatList"/>
+     <addaction name="menu_view_tool_attribute"/>
+     <addaction name="separator"/>
+     <addaction name="menu_view_tool_custom"/>
+    </widget>
+    <addaction name="menu_view_tool"/>
+    <addaction name="menu_view_statusBar"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="action_help_about"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_operation"/>
+   <addaction name="menu_editor"/>
+   <addaction name="menu_view"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_operation_connect"/>
+   <addaction name="action_operation_discon"/>
+   <addaction name="separator"/>
+   <addaction name="action_editor_add"/>
+   <addaction name="action_editor_modify"/>
+   <addaction name="action_editor_cut"/>
+   <addaction name="action_editor_copy"/>
+   <addaction name="action_editor_paste"/>
+   <addaction name="separator"/>
+   <addaction name="action_help_about"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_file_exit">
+   <property name="text">
+    <string>退出(&amp;X)</string>
+   </property>
+  </action>
+  <action name="action_operation_connect">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/connect.png</normaloff>:/new/prefix1/res/connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>连接(&amp;C)</string>
+   </property>
+  </action>
+  <action name="action_operation_discon">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/discon.png</normaloff>:/new/prefix1/res/discon.png</iconset>
+   </property>
+   <property name="text">
+    <string>断开(&amp;D)</string>
+   </property>
+  </action>
+  <action name="action_operation_resetService">
+   <property name="text">
+    <string>复位服务</string>
+   </property>
+  </action>
+  <action name="action_operation_resetEquip">
+   <property name="text">
+    <string>复位设备</string>
+   </property>
+  </action>
+  <action name="action_editor_add">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/add.png</normaloff>:/new/prefix1/res/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>增加(&amp;A)</string>
+   </property>
+  </action>
+  <action name="action_editor_modify">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/modify.png</normaloff>:/new/prefix1/res/modify.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改(&amp;M)</string>
+   </property>
+  </action>
+  <action name="action_editor_cut">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/cut.png</normaloff>:/new/prefix1/res/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>剪切(&amp;T)</string>
+   </property>
+  </action>
+  <action name="action_editor_copy">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/copy.png</normaloff>:/new/prefix1/res/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>复制(&amp;C)</string>
+   </property>
+  </action>
+  <action name="action_editor_paste">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/paste.png</normaloff>:/new/prefix1/res/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>粘贴(&amp;P)</string>
+   </property>
+  </action>
+  <action name="menu_view_statusBar">
+   <property name="text">
+    <string>状态栏(&amp;S)</string>
+   </property>
+  </action>
+  <action name="action_help_about">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/new/prefix1/res/about.png</normaloff>:/new/prefix1/res/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>关于XEditor(&amp;A)</string>
+   </property>
+  </action>
+  <action name="menu_view_tool_standard">
+   <property name="text">
+    <string>标准</string>
+   </property>
+  </action>
+  <action name="menu_view_tool_equipCatList">
+   <property name="text">
+    <string>设备类别列表</string>
+   </property>
+  </action>
+  <action name="menu_view_tool_attribute">
+   <property name="text">
+    <string>属性</string>
+   </property>
+  </action>
+  <action name="menu_view_tool_custom">
+   <property name="text">
+    <string>自定义...</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

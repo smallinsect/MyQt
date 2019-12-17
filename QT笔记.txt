@@ -1,0 +1,249 @@
+.pro
+生成makefile文件
+编译项目还是makefile
+
+安装igl库
+sudo apt-get install libgl1-mesa-dev
+
+QT点击项目，鼠标右键，添加库。
+
+设置运行路径
+点击项目，Run，把Working directory路径改成运行路径。
+
+编译 
+
+VS+QT项目配置
+输出、调试、库、头文件设置
+控制台打开
+修改引用的QT库
+修改解决方案的QT版本
+导出为QTCreator项目
+
+qt-vs-tools 安装好之后 vs中多了qt vs tools的菜单
+类名首字母大写 其它文件名小写 跨平台使用
+
+VS指定工作目录
+    鼠标点击项目属性->调试->工作目录
+
+QMake
+为什么要会QMake
+学会手动编译，平台移植，快速查找编译错误。
+
+编译pro生成makefile
+jom或者make编译makefile
+生成界面的源码
+    uic.exe widget.ui -o ui_widget.h
+    生成信号槽代码
+    moc.exe widget.h moc_widget.cpp
+
+从代码到程序执行经理的步骤
+    预处理-头文件加载和宏生成cpp
+    编译-cpp到.o或者.obj
+    链接so lib o obj res a
+    执行exe dll so
+
+在.pro文件里面添加
+# 打印项目路径
+message($$PWD)
+
+库引用和库路径指定
+LIBS += -L"../../lib" -lopencv_world320
+linux libopencv_world320.so
+windows opencv_world320.lib
+
+TARGET 输出指定
+
+QT创建动态库
+TEMPLATE = lib
+静态库CONFIG += staticlib
+使用qtcreator创建
+pro手动创建
+
+编译__declspec(dllexport)导出
+使用__declspec(dllimport)导入
+
+动态库
+SOURCES += xsocket.cpp
+HEADERS += xsocket.h
+TARGET=libdll
+#CONFIG+=staticlib
+
+编译和预处理是分开的
+#ifndef 是在cpp中
+
+定义宏文件
+DEFINES += TESTLIB01_LIBRARY
+
+添加头文件
+INCLUDEPATH+= ../libdll
+
+添加库文件
+LIBS += -L../../lib -llibdll
+
+debug和release版本的编译设置
+CONFIG+=debug_and_release
+debug会在项目中添加很多代码，添加的这些代码是为了调试的时候用。
+CONFIG(debug,debug|release){
+    //TARGET = debug_binary
+    TARGET = libdll_d
+}else{
+    //TARGET = release_binary
+    TARGET = libdll
+}
+
+跨平台编译项目
+win32:INCLUDEPATH += "C:/mylibs/extra headers"
+win32{
+    message(win32)
+}
+
+win32, linux, macx, unix
+//打印当前环境
+message($$QMAKESPEC)
+!linux{
+    message("not linux")
+}
+win32|linux{
+    message("win or linux")
+}
+
+打印变量
+message($$QMAKESPEC)
+
+信号槽
+类似windows的消息机制
+信号函数，只发送不需要知道接受者
+槽函数（普通函数），只接受不管通信
+QObject来绑定
+
+QT信号槽原理
+绑定信号函数和槽函数
+调用信号函数（将信号写入队列）
+主线程从队列中获取信号
+看图后分析源码
+
+信号槽的处理主循环
+
+Q_OBJECT没有这个，就不能生成信号槽
+
+手动绑定信号和槽函数
+connect(ui->btnMax, SIGNAL(chicked()),
+        this, SLOT(onClicked()));
+
+
+QWidget
+所有用户界面的积累
+窗口部件接受鼠标、键盘等事件
+屏幕上绘制自己
+父子关系有相对坐标 拖动主窗口 子窗口会跟着一起动
+
+用OPENGL绘制的
+
+QThread线程
+线程接口继承QThread
+void run(){}//线程处理函数
+void start(){}//线程启动函数
+
+手动创建QWidget对象
+QWidget w;
+w.show();//显示包含子窗口，槽函数。
+//槽函数尽量不要在线程中调用，尽量在主线程中调用。
+w.hide();//隐藏
+//处理视频，需要多线程函数
+
+QWidget窗口的坐标和尺寸
+QRect geometry();
+setGeometry(x,y,width,height);//设置窗口位置和宽高
+x(),y(),width(),height()
+move(x,y) //移动窗口的位置
+resize(width, height)//重置窗口大小
+上面的都是槽函数，子函数写了
+
+控件的放到线程中使用，都用信号和槽。
+
+窗口状态-最大化和最小化全屏
+setWindowState(Qt::WindowMaximized);
+//槽函
+WindowMinimized WindowMaximized
+WindowNoState WindowFullScreen
+showMaximized() showMinimiszed()
+showNormal() showFullScreen()
+
+定制窗口类型
+CustomizeWindowHint
+setWindowFlags
+setWindowFlag(Qt::WindowCloseButtonHint,false)
+Qt::WindowCloseButtonHint|Qt::WindowMinimizeButtonHint;
+
+字符集
+ASCII的7位字符集128个字符
+标准ASCII中最高位（b7）用作奇偶校验1个数
+ISO-8859-1扩展ASCII 128-255拉丁
+
+ANSI标准
+美国国家标准学会
+多字节字符集（MBCS，）
+0到127之间的字符，依旧是1个字节代表1个字符
+2个字节来表示1个字符
+
+GB2312 GBK编码
+ANSI编码 6763常用汉字
+两个大于127的字符表示一个汉字
+GBK编码GB2312的扩展汉字21003个
+
+全世界统一一种编码方式
+变长的编码方式 UTF-8
+单字节与ASCII码相同
+对于n字节的符号（n>1），首字节前n位为1，n+1为0，后面字节前两位都为10
+1字节 0xxxxxxx
+2字节 110xxxxx 10xxxxxx
+3字节 1110xxxx 10xxxxxx 10xxxxxx
+4字节 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+5字节 
+6字节
+7字节 
+UTF-16（两字节或四字节）
+UTF-32（四个字节）
+字节序BOM
+LE（littleendian）：小字节字节序 低位在前
+0x001A23 23 1A 00
+BE（big endian）：大字节字节序
+文本头
+    FE FF是BE 
+    FF FE是LE
+
+QString
+16-bit QChars ushort Unicode 4.0
+封装了字符串处理功能
+QString常用功能
+判断=="" isNull isEmpty
+字符串拼接+=
+格式化字符串%1 %2 arg()
+
+
+QT中文乱码问题
+默认字符集设置
+文件字符集格式vs qtcreator设置
+字符集转换QStringLiteral
+codec=QTextCodec::codecForName("UTF-8");
+QTextCodec::setCodecForLocale(codec);
+QTextCodec::availableCodecs();
+QString::fromLocal8Bit();
+
+vs 
+#pragma execution_character_set("UTF-8")
+
+数据源在外部 gbk或者是gb2312 多字节 存入QString
+//本地编码方式 默认GBK
+QString str1 = QString::fromLocal8Bit(src);
+//把QString转为GBK
+str.toStdString();
+//先转本地编码格式
+str.toLocal8Bit().toStdString();
+//本地处理编码方式，默认GBK，改为UTF-8
+QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
+
+str.toStdWString().c_str();
+
+打包程序
+windeployqt 程序的exe文件

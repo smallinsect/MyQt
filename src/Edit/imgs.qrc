@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/menu">
+        <file>menuimgs/add.jpg</file>
+        <file>menuimgs/undo.jpg</file>
+    </qresource>
+</RCC>

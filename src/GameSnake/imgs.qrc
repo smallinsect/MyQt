@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/snakebackground.png</file>
+        <file>image/snakefood.png</file>
+        <file>image/snakeheader.png</file>
+        <file>image/snakenode.png</file>
+    </qresource>
+</RCC>

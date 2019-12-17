@@ -1,0 +1,9 @@
+QGraphicsView容器->QGraphicsScene场景->QGraphicsItem图元
+
+QPixmap加载图片
+QGraphicsItem图元
+    设置void setPixmap()
+
+场景在容器的中心点
+
+

@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/bg1.png</file>
+        <file>images/bg2.png</file>
+        <file>images/daben.png</file>
+        <file>images/dada.png</file>
+        <file>images/doudou.png</file>
+        <file>images/hongmao.png</file>
+        <file>images/lantu.png</file>
+        <file>images/shali.png</file>
+        <file>images/tiaotiao.png</file>
+        <file>images/baocun.png</file>
+        <file>images/jiachu.png</file>
+        <file>images/qingchu.png</file>
+        <file>images/xiahuaxian.png</file>
+        <file>images/xieti.png</file>
+        <file>images/yanse.png</file>
+    </qresource>
+</RCC>

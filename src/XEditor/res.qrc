@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>res/connect.png</file>
+        <file>res/about.png</file>
+        <file>res/add.png</file>
+        <file>res/copy.png</file>
+        <file>res/cut.png</file>
+        <file>res/discon.png</file>
+        <file>res/modify.png</file>
+        <file>res/paste.png</file>
+        <file>res/merge.bmp</file>
+        <file>res/next.bmp</file>
+        <file>res/search.bmp</file>
+        <file>res/unfold.bmp</file>
+        <file>res/hardware.bmp</file>
+        <file>res/ET.bmp</file>
+    </qresource>
+</RCC>

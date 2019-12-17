@@ -1,0 +1,124 @@
+
+connect(ui->actionQuit, &QAction::trigger, [=]{
+    this->close();
+});
+
+//设置固定大小
+this->setFixedSize(320,588);
+//设置标题
+this->setWindowTitle("翻金币游戏");
+//设置图片
+this->setWindowIcon(QIcon(":/res/con.png"));
+
+//绘图时间
+void paintEvent(QPaintEvent *ev);
+QPainter painter(this);//画笔
+QPixmap pix;//画图片
+pix.load();//加载图片
+painter.drawPixmap(0, 0, this->witdh(), this->height(), pix);//将图片画到界面上
+//画标题
+pix.load(":/");//再重新加载一张图片
+pix = pix.scaled(pix.width()*0.5, pix.height()*0.5);//将图片缩放
+painter.drawPixmap(0,0, pix);
+
+MyPushButton继承QPushButton
+
+QPixmap pix;
+bool ret = pix.load(this->normalImagPath);
+if(!ret){
+    //加载失败
+}
+//设置图片大小
+setFixedSize(pix.width(), pix.height());
+//设置图片样式
+setStyleSheet("QPushButton{border:0px;}");
+//设置图片
+setIcon(pix);
+//设置图标大小
+
+自定义按钮的封装
+    
+//绘图事件
+void paintEvent(QPaintEvent *){
+    //创建画家
+    QPainter painter(this);//当前的这张纸做绘图设备
+
+    //设置画笔颜色
+    QPen pen(QColor(255, 0, 0));
+    //设置笔的宽度
+    pen.setWidth(3);
+    //设置笔的风格
+    pen.setStyle(Qt::DotLine);
+    //画家用这支笔
+    painter.setPen(pen);
+
+    //画刷
+    QBrush brush(Qt::green);
+    //设置画刷的风格
+    brush.setStyle(Qt::Dense4Pattern);
+    //让画家使用画刷
+    painter.setBrush(brush);
+
+    //利用画家画画
+    //画一条线
+    painter.drawLine(QPoint(0, 0), QPoint(100,100));
+    //画圆
+    painter.drawEllipse(QPoint(100,100), 50, 50);
+    //画矩形
+    painter.drawRect(QRect(10, 10, 50, 50));
+    //画字体
+    painter.drawText(QRect(10, 200, 100, 50), "爱白菜的小昆虫");
+
+}
+//高级设置
+void paintEvent(QPaintEvent *){
+    //高级设置
+    painter.drawEllipse(QPoint(200,100), 50, 50);
+    //设置抗锯齿 效率比较低了
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.drawEllipse(QPoint(200,100), 50, 50);
+
+    //画一个矩形
+    painter.drawRect(QRect(20, 20, 50, 50));
+    //移动画家
+    painter.translate(QPoint(100, 100));
+    painter.drawRect(QRect(20, 20, 50, 50));
+
+    //保存状态
+    //取出状态
+}
+//画图片
+void paintEvent(QPianter *){
+    //先添加图片资源
+    //画图片
+    painter.drawPixmap(10, 100, QPixmap(":/res/hehe.png"));
+
+}
+int posx = 10;
+connect(ui->pushButton, &QPushButton::clicked, [=](){
+    posX += 10;
+    //手动调用绘图事件
+    update();
+});
+
+//绘图设备
+QPixmap
+QBitmap只有白色和黑色
+QPicture
+
+//QPixmap 做绘图设备
+QPixmap pix(300, 300);//创建画图区域300*300
+QPainter painter(&pix);//创建一支画笔 在图片上画画
+//设置画笔颜色
+painter.setPen(QPen(Qt::green);
+painter.drawEllipse(QPoint(150,150, 100, 100));
+//保存
+pix.save("E:/pix.png");
+
+
+
+
+
+
+
+

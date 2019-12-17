@@ -1,0 +1,167 @@
+帮助文档特别全
+
+调试版+d 发布版没有+d
+编译调试程序比编译发布程序小很多
+调试版 包含调试信息
+发布版 不包含调试信息
+
+
+主窗体 普通窗体 模态窗体
+
+登录界面的功能
+按钮：push button
+标签：text label
+单行输入框：line edit
+
+布局 站位符
+输入框echoMode passwod
+linePass
+lineName
+btnLogin
+btnCanel
+
+学习他编译生成的代码
+
+手动编译过程：
+1.程程解决方案
+qmake -project
+2.生成Makefile文件
+qmake
+3.生成最终可执行程序
+make
+
+用xml布局，然后自己解析xml文件
+
+unix signal
+生产者（键盘） 绑定（signal(id，xxx)） 接受（.c xxx函数处理）
+qt 信号与槽
+产生者（按钮等） 绑定（connect()） 接受者（可以为当前对象 槽去处理）
+
+计算机
+
+textEdit->setText();//设置普通文本
+textEdit->setHtml();//设置html格式
+textEdit->toPlainText();//获取文本形式
+textEdit->toHtml();//获取html格式
+
+将按钮的编程复选框
+pushButton->setCheckable();
+
+toolButton->setIcon(QIcon("图标的文件路径喝图标的名字"));//设置按钮的图标
+toolButton->setIconSize(QSize(100,100);//设置图标大小
+
+QMenu *menu = new QMenu(this);//添加菜单
+menu->addAction(QIcon("图标路径和名字"), "声音", this, "");//给菜单增加子菜单
+toolButton->setMenu(menu);//给按钮添加菜单
+可以给菜单绑定槽函数
+
+
+//产生种子
+qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+for(int i = 0; i < 10; ++i){
+    qDebug() << qrand()%100;
+}
+
+------------------demo03------------------
+QLabel 继承QWidget
+    显示文字，换行显示
+    样式设置字体、颜色、背景色
+    显示图片
+        pixmap设置图片 stylesheet通过样式添加图片
+    播放gif动画
+    界面创建，手动创建
+        QLabel *label = new QLabel(this);
+        label->setGeometry(0,0, 200, 200);//设置label的位置
+        label->setStyleSheet("");//设置样式表
+
+        QMovie *mov= new Movie("动画位置");//动画
+        mov->start();//开始运行动画
+
+        QLabel textFormat修改
+            plain 
+            rich
+        Act(QString)//链接点击事件
+        Hov(QString)//链接鼠标移入事件
+    
+    QLabel选择和编辑
+        textInteraction修改属性 鼠标可选中 可修改
+
+------------------demo04------------------
+QPushButton
+    事件设置
+        QPushButton事件信号
+        click()
+        click(bool)是否选中
+        pressed()
+        released()
+    快捷键设置
+        setShortcut
+        setShortcut(tr("Alt+F7"))//设置快捷键
+        setShortcut(tr("Ctrl+j,Ctrl+c"))//设置快捷键
+    样式设置
+        背景色、字体及颜色
+        背景图片FLAT
+        圆角边框
+            border-radius: 10px;
+        渐变圆角光泽按钮
+    鼠标hover样式
+        QPushButton{
+
+        }
+        QPushButton::!hover{
+
+        }
+        QPushButton::hover{//鼠标移入 设置样式
+
+        }
+QLineEdit
+    属性方法（槽）
+        setClearButtonEnabled
+        setReadOnly//只读
+        setMaxLength
+        setPlaceholderText//提示
+    信号事件
+    输入验证（正则）
+    qss样式
+    撤销和恢复 undo() redo() 槽函数
+
+QPainter划线
+    pen.setStyle(Qt::SolidLine);
+    pen.setWidth(size);
+    pen.setBrush(col);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setJoinStyle(Qt::RoundJoin);
+    imgPainter->setPen(pen);
+    imgPainter->drawLine
+
+
+QImage(1280, 720, QImage::Format_RGBA8888);//宽度4对齐
+QImage img("1.jpg");
+if(!img.load()){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

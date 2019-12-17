@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/bg">
+        <file>imgs/background.png</file>
+        <file>imgs/chuizi.png</file>
+        <file>imgs/chuizichui.png</file>
+        <file>imgs/dishu.png</file>
+        <file>imgs/dishuda.png</file>
+    </qresource>
+    <qresource prefix="/music">
+        <file>musics/backmusic.wav</file>
+        <file>musics/bgmusic.wav</file>
+    </qresource>
+</RCC>
